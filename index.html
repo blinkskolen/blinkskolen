@@ -7,9 +7,37 @@
 body {
 	color: white;
 	background: #D1DED6;
-	min-height: 100em; /* extra space to have more background space */
 	font-family: monospace;
+	font-size: 12pt;
 }
+
+.parent{
+    position: relative;
+    width: 1200px;
+    border: 1;
+}
+
+.over-menu{
+    position: absolute;
+    top: 75px;
+    width: 100%;
+}
+.over-img{
+    position: absolute;
+    top: 59.2%;
+    left: 50.9%;
+}
+
+
+.results{
+    position: absolute;
+    top: 380px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 18pt;
+    color: black;
+}
+
 </style>
 <body>
 <center>
@@ -164,59 +192,59 @@ function go() {
 This page requires Javascript to work.
 </noscript>
 
-<table border=1 width=800 height=600><tr><td>
+<div class="parent">
+    <img class="image1" src="projectmorse4web3.png" alt="Loading error..." />
+    <div class="over-menu">
+    	<center>
+    		<form onsubmit="return false;">
+					<p>
+						<label for="letterlist">Lektion:</label> 
+					    <select id="letterlist">
+					      <option value="AEOST">1: A E O S T</option>
+					      <option value="HILNR">2: H I L N R</option>
+					      <option value="AEOSTHILNR">Blandet: 1+2</option>
+					      <option value="CFGU">3: C F G U</option>
+					      <option value="AEOSTHILNRCFGU">Blandet: 1+2+3</option>
+					      <option value="DKMP">4: D K M P</option>
+					      <option value="AEOSTHILNRCFGUDKMP">Blandet: 1+2+3+4</option>
+					      <option value="BQWY">5: B Q W Y</option>
+					      <option value="AEOSTHILNRCFGUDKMPBQWY">Blandet: 1+2+3+4+5</option>
+					      <option value="JVXZ">6: J V X Z</option>
+					      <option value="AEOSTHILNRCFGUDKMPBQWYJVXZ">Alle bogstaver</option>
+					      <option value="1234567890">Tal: 1 2 3 4 5 6 7 8 9 0</option>
+					      <option value="AEOSTHILNRCFGUDKMPBQWYAEOSTHILNRCFGUDKMPBQWY1234567890">Alle tal og bogstaver</option>      
+					    </select>
+					</p>
 
-<form onsubmit="return false;">
+					<p>
+					<label for="ms">Hastighed:</label>
+					    <select id="ms">
+					      <option value=857>1</option>
+					      <option value=428>2</option>
+					      <option value=285>3</option>
+					      <option value=214>4</option>
+					      <option value=171>5</option>
+					      <option value=142 selected>6</option>
+					      <option value=122>7</option>
+					      <option value=107>8</option>
+					      <option value=95>9</option>
+					      <option value=86>10</option>
+					      <option value=78>11</option>
+					      <option value=71>12</option>
+					    </select>
+					</p>
 
-<p>
-	<label for="letterlist">Lektion:</label> 
-    <select id="letterlist">
-      <option value="AEOST">1: A E O S T</option>
-      <option value="HILNR">2: H I L N R</option>
-      <option value="AEOSTHILNR">Blandet: 1+2</option>
-      <option value="CFGU">3: C F G U</option>
-      <option value="AEOSTHILNRCFGU">Blandet: 1+2+3</option>
-      <option value="DKMP">4: D K M P</option>
-      <option value="AEOSTHILNRCFGUDKMP">Blandet: 1+2+3+4</option>
-      <option value="BQWY">5: B Q W Y</option>
-      <option value="AEOSTHILNRCFGUDKMPBQWY">Blandet: 1+2+3+4+5</option>
-      <option value="JVXZ">6: J V X Z</option>
-      <option value="AEOSTHILNRCFGUDKMPBQWYJVXZ">Alle bogstaver</option>
-      <option value="1234567890">Tal: 1 2 3 4 5 6 7 8 9 0</option>
-      <option value="AEOSTHILNRCFGUDKMPBQWYAEOSTHILNRCFGUDKMPBQWY1234567890">Alle tal og bogstaver</option>      
-    </select>
-</p>
+					<p>
+					<input type="submit" onclick="go()" value="Start"/>
+					<input type="button" onclick="stop()" value="Stop"/>
+					</p>
 
-<p>
-<label for="ms">Hastighed:</label>
-    <select id="ms">
-      <option value=857>1</option>
-      <option value=428>2</option>
-      <option value=285>3</option>
-      <option value=214>4</option>
-      <option value=171>5</option>
-      <option value=142 selected>6</option>
-      <option value=122>7</option>
-      <option value=107>8</option>
-      <option value=95>9</option>
-      <option value=86>10</option>
-      <option value=78>11</option>
-      <option value=71>12</option>
-    </select>
-</p>
-
-<p>
-<input type="submit" onclick="go()" value="Start"/>
-<input type="button" onclick="stop()" value="Stop"/>
-</p>
-
-</form>
-
-<div id="blinkLight" style="opacity: 0;"><h1 style="color:#ffffff;">●</h1></div>
-
-<div id="Results" style="color:#ffffff;"></div>
-
-</td></tr></table>
+					</form>
+					<div class="results" id="Results"></div>
+    	</center>
+    </div>
+    <img src="000.png" class="over-img" id="blinkLight" style="opacity: 0;"/>
+</div>
 
 </center>
 </body>
